@@ -1,3 +1,6 @@
+package util;
+
+import common.AbstractTestBase;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,12 +12,12 @@ public class FileUtilTest extends AbstractTestBase {
     @Test
     public void readLines_invalidFiles_returnEmpty() {
         assertTrue(FileUtil.readLines("").isEmpty());
-        assertTrue(FileUtil.readLines(BASE_RESOURCE_DIR + "nonexistant.file").isEmpty());
-        assertTrue(FileUtil.readLines(BASE_RESOURCE_DIR + "empty.txt").isEmpty());
+        assertTrue(FileUtil.readLines(AbstractTestBase.BASE_RESOURCE_DIR + "nonexistant.file").isEmpty());
+        assertTrue(FileUtil.readLines(AbstractTestBase.BASE_RESOURCE_DIR + "empty.txt").isEmpty());
     }
 
     @Test
     public void readLines_validFile_returnsLines() {
-        assertEquals(1000, FileUtil.readLines(BASE_RESOURCE_DIR + VALID_FILE).size());
+        assertEquals(1000, FileUtil.readLines(AbstractTestBase.BASE_RESOURCE_DIR + VALID_FILE).size());
     }
 }

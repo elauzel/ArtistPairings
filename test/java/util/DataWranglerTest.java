@@ -1,4 +1,6 @@
-import org.junit.Assert;
+package util;
+
+import common.AbstractTestBase;
 import org.junit.Test;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public class DataWranglerTest extends AbstractTestBase {
 
     @Test
     public void removeLinesWithoutTwoArtists_hasLinesToRemove_returnsSubset() {
-        final List<String> originalLines = FileUtil.readLines(BASE_RESOURCE_DIR + "input.txt");
+        final List<String> originalLines = FileUtil.readLines(AbstractTestBase.BASE_RESOURCE_DIR + "input.txt");
         final List<String> newLines = DataWrangler.removeLinesWithoutTwoArtists(originalLines);
         assertTrue(originalLines.containsAll(newLines));
         assertEquals(965, newLines.size());
@@ -22,7 +24,7 @@ public class DataWranglerTest extends AbstractTestBase {
 
     @Test
     public void removeLinesWithoutTwoArtists_noLinesToRemove_returnsOriginal() {
-    final List<String> originalLines = FileUtil.readLines(BASE_RESOURCE_DIR + "valid - all lines with two artists.txt");
+        final List<String> originalLines = FileUtil.readLines(AbstractTestBase.BASE_RESOURCE_DIR + "valid - all lines with two artists.txt");
         assertEquals(originalLines, DataWrangler.removeLinesWithoutTwoArtists(originalLines));
     }
 }
