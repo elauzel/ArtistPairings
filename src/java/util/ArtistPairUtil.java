@@ -28,7 +28,10 @@ public class ArtistPairUtil {
                 .filter(line -> line.contains(primaryArtist))
                 .collect(Collectors.toList());
         return CsvUtil.extractUniqueValues(linesWithArtist).parallelStream()
-                .filter(pairedArtist -> !pairedArtist.equals(primaryArtist) && linesWithArtist.stream().filter(line -> line.contains(pairedArtist)).count() >= numPairsRequired)
+                .filter(pairedArtist ->
+                        !pairedArtist.equals(primaryArtist) && linesWithArtist
+                                .stream()
+                                .filter(line -> line.contains(pairedArtist + ",") || line.contains("," + pairedArtist)).count() >= numPairsRequired)
                 .collect(Collectors.toSet());
     }
 }
