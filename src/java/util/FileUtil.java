@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class FileUtil {
@@ -15,6 +16,16 @@ public class FileUtil {
         } catch (IOException ioe) {
             LoggerUtil.logError("Error reading file: " + ioe.getMessage());
             return new ArrayList<>();
+        }
+    }
+
+    public static boolean writeLines(Collection<String> lines, String filename) {
+        try {
+            Files.write(Paths.get(filename), lines);
+            return true;
+        } catch (Exception e) {
+            LoggerUtil.logError("Error writing file: " + e.getMessage());
+            return false;
         }
     }
 }
