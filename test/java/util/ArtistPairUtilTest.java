@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toSet;
 
 public class ArtistPairUtilTest extends AbstractTestBase {
-    private static final int IRRELEVANT_NUM = 1;
 
     @Test
     public void getArtistPairings_badArtistsOrNum_returnsEmpty() {

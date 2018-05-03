@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class FileUtil {
-    public static String FS = System.getProperty("file.separator");
+    public static final String FS = System.getProperty("file.separator");
 
     public static List<String> readLines(String filename) {
         try {
